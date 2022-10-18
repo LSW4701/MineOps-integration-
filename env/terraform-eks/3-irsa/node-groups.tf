@@ -48,4 +48,6 @@ module "node_group__app" {
      monitoring = true 
      owner = "lsw2"
    }
+
+   monitoring_enabled = true  # 
 }

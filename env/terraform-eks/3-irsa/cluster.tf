@@ -19,4 +19,6 @@ module "cluster" {
     "api", "audit", "authenticator", "controllerManager", "scheduler" 
   ]
   log_retention_in_days = 90
+
+  monitoring_enabled = true  # 
 }

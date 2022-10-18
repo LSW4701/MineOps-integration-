@@ -8,8 +8,8 @@ module "ec2" {
   key_name                    = local.key_name
   instance_type               = local.instance_type
   availability_zone           = element(local.azs, 0)
-  subnet_id                   = element(local.public_subnet_ids, 0)
-  vpc_security_group_ids      = [module.ssh.security_group_id, local.default_sg_id]
+  subnet_id                   = local.remote_states["network"].subnet_groups  # element(local.public_subnet_ids, 0)
+  # vpc_security_group_ids      = [module.ssh.security_group_id, local.default_sg_id]
   iam_instance_profile        = module.iam.iam_instance_profile_name
   associate_public_ip_address = true
   monitoring                  = var.detailed_monitoring

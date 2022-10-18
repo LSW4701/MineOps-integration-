@@ -44,4 +44,9 @@ module "node_group__app" {
     team = "mineops"
   }
   node_taints = []
+   
+  tags = {  ##
+     monitoring = true 
+     owner = "dj.kim"
+   }
 }

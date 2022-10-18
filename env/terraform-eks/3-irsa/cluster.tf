@@ -15,8 +15,8 @@ module "cluster" {
     local.vpc.cidr_block,
   ]
 
-  log_types = [ # 현재는 어떠한 로그도 허용 X , 과금문제 
-    # "api", "audit", "authenticator", "controllerManager", "scheduler" 
+  log_types = [ # 현재는 어떠한 로그도 허용 X , 과금문제 -> 제거 
+    "api", "audit", "authenticator", "controllerManager", "scheduler" 
   ]
   log_retention_in_days = 90
 }

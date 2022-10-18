@@ -39,3 +39,4 @@ done
 
 ## Generate OpenVPN client configuration file
 docker exec openvpn show-client-config > fastcampus.ovpn
+

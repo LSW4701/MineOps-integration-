@@ -30,7 +30,7 @@ resource "aws_instance" "private" {
 }
 
 locals {
-  openvpn_userdata = templatefile("${path.module}/files/openvpn-userdata.sh", {
+  openvpn_userdata = templatefile("${path.module}/files/userdata.sh", {
     vpc_cidr  = local.vpc.cidr_block
     public_ip = aws_eip.openvpn.public_ip
   })
@@ -54,6 +54,6 @@ resource "aws_instance" "openvpn" {
   ]
 
   tags = {
-    Name = "${local.vpc.name}-openvpn"
+    Name = "${local.vpc.name}-web & openvpn"
   }
 }

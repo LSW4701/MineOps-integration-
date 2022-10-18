@@ -28,6 +28,8 @@ module "node_group__app" {
   instance_ssh_key = "linux1" # 개인 public ssh 키
   instance_profile = module.cluster.iam_roles["node"].instance_profile_name
 
+  user_data = data.template_file.userdata.rendered  # 
+
   associate_public_ip_address = true
   subnet_ids                  = local.subnet_groups["public"].ids
   security_group_ids = [

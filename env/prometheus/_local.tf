@@ -6,6 +6,9 @@ locals {
   ssh_sg_name  = format("%s-ssh-sg", var.name)
   http_sg_name = format("%s-http-sg", var.name)
 
+  vpc_id = local.remote_states["network"].vpc   ##
+  subnet_id = local.remote_states["network"].subnet_groups ##
+
   tags = merge(var.tags, { Owner = var.owner, Environment = var.env })
    
 

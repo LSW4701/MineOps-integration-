@@ -2,7 +2,7 @@ module "security_group__node" {
   source  = "tedilabs/network/aws//modules/security-group"
   version = "0.24.0"
 
-  name        = "${module.cluster.name}-node-user"
+  name        = "pro node-user"
   description = "Security group for EKS nodes."
   vpc_id      = local.vpc.id
 

@@ -10,4 +10,4 @@ variable "region" {
 #   default = "apne2/network/vpc/terraform.tfstate"
 # }
 
-# variable "tags" {}
+variable "tags" {}

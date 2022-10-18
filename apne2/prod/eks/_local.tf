@@ -29,9 +29,14 @@ locals {
         key                 = "ExtraTag"
         value               = "TagValue"
         propagate_at_launch = true
+        ec2_tags            = { monitoring : true }  # 모니터링 태그용 
+
       }]
     }
   ]
+
+  ami_id        = data.aws_ami.this.id # 
+  ami_owners    = var.ami_owners  #
 
   sg_name        = format("%s-eks-worker-sg", var.name)
   sg_description = format("%s-eks-worker-sg", var.name)

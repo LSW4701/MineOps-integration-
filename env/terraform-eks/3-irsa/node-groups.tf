@@ -41,12 +41,12 @@ module "node_group__app" {
 
   node_labels = {
     role = "app"
-    team = "mineops"
+    team = "apne2-mineops"  # 
   }
   node_taints = []
    
   tags = {  ##
      monitoring = true 
-     owner = "dj.kim"
+     owner = "lsw2"
    }
 }

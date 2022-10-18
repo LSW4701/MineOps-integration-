@@ -1,5 +1,5 @@
 locals {
-  region = var.region
+  region = "ap-northeast-2"
 
   ec2_name     = format("%s-ec2", var.name)
   role_name    = format("%s-role", var.name)

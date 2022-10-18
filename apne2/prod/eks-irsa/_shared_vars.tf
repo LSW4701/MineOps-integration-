@@ -11,7 +11,9 @@ variable "vpc_key" {
 }
 
 variable "eks_key" {
-  default = "apne2/eks/mgt/terraform.tfstate"
+  default = "terra2/terraform.tfstate"
 }
 
 variable "tags" {}
+
+

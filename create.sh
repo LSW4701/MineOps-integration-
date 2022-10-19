@@ -19,12 +19,12 @@ echo $DIR
 cd $DIR/env/terraform-aws-ubuntu/network ; terraform init
 terraform apply -auto-approve
 
-cd $DIR/env/terraform-eks/3-irsa ; terraform init
-terraform apply -auto-approve
-
 cd $DIR/env/ec2/ec2-instance ; terraform init
 terraform apply -auto-approve
 
+
+cd $DIR/env/terraform-eks/3-irsa ; terraform init
+terraform apply -auto-approve
 aws eks update-kubeconfig --region ap-northeast-2 --name apne2-mineops --alias apne2-mineops
 # EKS연결을 위해 ~/.kube/config 파일 내 클러스터 연결 정보를 추가연결하는 과정 
 

@@ -22,6 +22,9 @@ terraform apply -auto-approve
 cd $DIR/env/terraform-eks/3-irsa ; terraform init
 terraform apply -auto-approve
 
+cd $DIR/env/ec2/ec2-instance ; terraform init
+terraform apply -auto-approve
+
 aws eks update-kubeconfig --region ap-northeast-2 --name apne2-mineops --alias apne2-mineops
 # EKS연결을 위해선 ~/.kube/config 파일 내 클러스터 연결 정보를 추가해야함
 
@@ -63,16 +66,16 @@ curl -L https://git.io/get_helm.sh | bash -s -- --version v3.8.2
 ###########################################################################################
 
 
-helm repo add stable https://itzg.github.io/minecraft-server-charts/
-helm fetch stable/minecraft --untar
-/bin/cp -r values.yaml minecraft/
-kubectl create ns mine-release
+# helm repo add stable https://itzg.github.io/minecraft-server-charts/
+# helm fetch stable/minecraft --untar
+# /bin/cp -r values.yaml minecraft/
+# kubectl create ns mine-release
 
-helm install mine-release --namespace=mine-release ./minecraft -f ./minecraft/values.yaml
+# helm install mine-release --namespace=mine-release ./minecraft -f ./minecraft/values.yaml
 
-echo "============================================"
-echo "kubectl get all -n mine-release 명령어에서 각 pod들이 running됬는지 확인 후(약 2분소요) "
-echo "출력된 EXTERNAL-IP로 마인크래프트 클라이언트에서 접속"
+# echo "============================================"
+# echo "kubectl get all -n mine-release 명령어에서 각 pod들이 running됬는지 확인 후(약 2분소요) "
+# echo "출력된 EXTERNAL-IP로 마인크래프트 클라이언트에서 접속"
 echo "============================================"
 
 # aa="$(terraform output vpc1)"

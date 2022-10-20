@@ -7,11 +7,11 @@
 
 echo "============================================"
 echo " create MineOps EKS create script  "
-echo " module.cluster.aws_eks_cluster.this: Still creating... [10m50s elapsed] "
-echo " EKS 리소스 생성과정에서 10분 이상 시간 소모 "
+echo " 해당파일은 스크립트 실행전 테라폼 상태저장소를 지우는 스크립트 입니다."
+echo " EKS를 만들고 싶으시면 현재경로에서 sh creat.sh 를 수행하세요."
 date +%Y-%m-%d
 
-echo " 스크립트 실행전 초기화 "
+
 
 
 DIR="$( cd "$( dirname "$0" )" && pwd -P )"

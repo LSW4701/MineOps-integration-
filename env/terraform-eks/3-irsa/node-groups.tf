@@ -15,10 +15,17 @@ data "aws_ami" "latest" {
 module "node_group__app" {
   source  = "tedilabs/container/aws//modules/eks-node-group"
   version = "0.14.0"
+  
+
+  user_data_template_path  = "/files/userdata.sh"
+
+  # pre_bootstrap_user_data = <<-EOT
+  #  echo 'foo bar'
+  # EOT
 
   cluster_name = module.cluster.name
-  name         = "${module.cluster.name}-app-v1.23"
-
+  name         = "${module.cluster.name}-app-v1.23-node"
+  
   desired_size = 2  # autuscale 
   min_size     = 1
   max_size     = 2
@@ -51,3 +58,22 @@ module "node_group__app" {
 
    monitoring_enabled = true  # 
 }
+
+# module "eks__user_data" {  구글링중...
+#   source  = "terraform-aws-modules/eks/aws//modules/_user_data"
+#   version = "18.30.2"
+
+#   cluster_name = module.cluster.name
+#   cluster_service_ipv4_cidr= "172.20.0.0/16"
+#   user_data_template_path = "/files/userdata.sh"
+
+
+
+# # openvpn_userdata = templatefile("${path.module}/files/userdata.sh", {
+# #     vpc_cidr  = local.vpc.cidr_block
+# #     public_ip = aws_eip.openvpn.public_ip
+# #   })
+
+# }
+
+

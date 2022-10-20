@@ -21,7 +21,6 @@ cd $DIR/env/terraform-aws-ubuntu/network ;
 rm -rf .terraform .terraform.lock.hcl
 
 cd $DIR/env/ec2/ec2-instance ; 
-terraform apply -auto-approve
 rm -rf .terraform .terraform.lock.hcl
 
 cd $DIR/env/terraform-eks/3-irsa ; 

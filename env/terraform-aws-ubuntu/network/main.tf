@@ -25,13 +25,6 @@ module "vpc" {
 
 }
 
-module "vpc1" { #
-  source = "github.com/terraform-aws-modules/terraform-aws-vpc"
-
-  public_subnet_tags  = var.public_subnet_tags
-  private_subnet_tags = var.private_subnet_tags
-  
-}
 
 
 ##################################################

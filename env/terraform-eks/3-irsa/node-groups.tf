@@ -39,7 +39,10 @@ module "node_group__app" {
     module.security_group__node.id,
   ]
 
-  bootstrap_extra_args = "/files/userdata.sh"
+  bootstrap_extra_args =templatefile("${path.module}/files/userdata.sh", {
+    vpc_cidr  = local.vpc.cidr_block
+    
+  })
   # cni_custom_networking_enabled = true
 
   node_labels = {

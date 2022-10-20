@@ -17,11 +17,7 @@ module "node_group__app" {
   version = "0.14.0"
   
 
-  user_data_template_path  = "/files/userdata.sh"
 
-  # pre_bootstrap_user_data = <<-EOT
-  #  echo 'foo bar'
-  # EOT
 
   cluster_name = module.cluster.name
   name         = "${module.cluster.name}-app-v1.23-node"
@@ -43,6 +39,7 @@ module "node_group__app" {
     module.security_group__node.id,
   ]
 
+  bootstrap_extra_args = "/files/userdata.sh"
   # cni_custom_networking_enabled = true
 
   node_labels = {
@@ -54,10 +51,16 @@ module "node_group__app" {
   tags = {  ##
      monitoring = true 
      owner = "lsw2"
+     terraform = true
    }
 
-   monitoring_enabled = true  # 
+   monitoring_enabled = true  # 모니터링 on 
 }
+
+
+
+
+
 
 # module "eks__user_data" {  구글링중...
 #   source  = "terraform-aws-modules/eks/aws//modules/_user_data"

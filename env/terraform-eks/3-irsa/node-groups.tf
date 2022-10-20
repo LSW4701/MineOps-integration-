@@ -68,7 +68,7 @@ module "eks__user_data" {  # 구글링중...
 
   cluster_name = module.cluster.name
   cluster_service_ipv4_cidr= "172.20.0.0/16"
-  user_data_template_path = "/files/userdata.sh"
+  user_data_template_path = "files/userdata.sh"
 
 
 

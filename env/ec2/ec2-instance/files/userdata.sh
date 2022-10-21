@@ -1,4 +1,6 @@
 #!/bin/bash
+# 해당 이미지 우분투 
+############# 도커설치 
 sudo apt-get update
 sudo apt-get install -y \
   apt-transport-https \
@@ -12,7 +14,21 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-usermod -aG docker ubuntu # 도커설치 
+usermod -aG docker ubuntu 
+
+######## kubectl 설치 
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+
+sudo apt-get install -y apt-transport-https
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+######## open vpn 설치
 
 ## Run openvpn-ldap-otp container  # 멀티팩터 및 LDAP인증도 되는 오픈소스 openvpn  https://github.com/wheelybird/openvpn-server-ldap-otp
 #-e "OVPN_SERVER_CN=${public_ip}" \       # 환경변수를주입   -> 여기 $값이 templatefile의 두번째 인자값을 렌더링 하였음 

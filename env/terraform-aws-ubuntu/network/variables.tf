@@ -4,3 +4,5 @@ variable "config_file" {
   default     = "./config.yaml"
 }
 
+variable "private_subnet_tags" {}
+variable "public_subnet_tags" {}

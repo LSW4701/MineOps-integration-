@@ -32,7 +32,7 @@ module "vpc" {
 ##################################################
 
 module "subnet_group" {
-  source  = "tedilabs/network/aws//modules/subnet-group"
+  source  = "tedilabs/network/aws//modules/subnet-group" 
   version = "0.24.0"
 
   for_each = local.config.subnet_groups
@@ -51,6 +51,11 @@ module "subnet_group" {
   }
   tags = local.common_tags
   
+}
+
+resource "aws_vpc" "subnet_group.name" {
+  public_subnet_tags = { "kubernetes.io/role/elb" : 1 } 
+
 }
 
 

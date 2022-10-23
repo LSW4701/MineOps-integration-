@@ -28,6 +28,18 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update
 sudo apt-get install -y kubectl
 
+
+######################### AWS CLI 설치 
+
+sudo apt install -y unzip
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+
+
+
 ######## open vpn 설치
 
 ## Run openvpn-ldap-otp container  # 멀티팩터 및 LDAP인증도 되는 오픈소스 openvpn  https://github.com/wheelybird/openvpn-server-ldap-otp

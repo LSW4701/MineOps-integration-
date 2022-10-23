@@ -77,7 +77,7 @@ module "subnet_group__public" {
   tags = {
     Project = "Network"
     Owner   = "posquit0" ## 
-    #kubernetes.io/role/elb = "1"
+    "kubernetes.io/role/elb" = "1"
   }
 }
 

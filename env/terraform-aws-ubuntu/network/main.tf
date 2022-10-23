@@ -122,7 +122,8 @@ module "route_table__public" {
   name   = "${module.vpc.name}-public"
   vpc_id = module.vpc.id
 
-  subnets = module.subnet_group["public"].ids
+  # subnets = module.subnet_group["public"].ids  ##
+  subnets = module.subnet_group__public.ids
 
   ipv4_routes = [
     {
@@ -141,7 +142,8 @@ module "route_table__private" {
   name   = "${module.vpc.name}-private"
   vpc_id = module.vpc.id
 
-  subnets = module.subnet_group["private"].ids
+  # subnets = module.subnet_group["private"].ids  ##
+  subnets = module.subnet_group__private.ids
 
   ipv4_routes = []
 

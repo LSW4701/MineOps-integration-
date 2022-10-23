@@ -52,11 +52,11 @@ module "subnet_group" {
   tags = local.common_tags
   
 }
-module "vpc1" {
+module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
 }
-resource "vpc1" "subnet_group" {
+resource "vpc" "subnet_group" {
   public_subnet_tags = { "kubernetes.io/role/elb" : 1 } 
 
 }

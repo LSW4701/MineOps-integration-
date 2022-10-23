@@ -53,7 +53,7 @@ module "subnet_group" {
   
 }
 
-resource "aws_vpc" "subnet_group.name" {
+resource "aws_vpc" "subnet_group" {
   public_subnet_tags = { "kubernetes.io/role/elb" : 1 } 
 
 }

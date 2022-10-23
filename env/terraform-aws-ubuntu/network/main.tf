@@ -3,8 +3,7 @@ locals {
     Project = "Network"
     Owner   = "posquit0" ## 
     
-  private_subnet_tags = merge(var.private_subnet_tags)
-  public_subnet_tags  = merge(var.public_subnet_tags)
+
   }
 
  
@@ -24,9 +23,7 @@ module "vpc" {
 
   tags = local.common_tags
   
-  
-
-}
+  }
 
 
 
@@ -62,7 +59,7 @@ module "subnet_group__public" {
   source  = "tedilabs/network/aws//modules/subnet-group"
   version = "0.24.0"
  
-  name                    = "${module.vpc.name}-${each.key}"
+  name                    = "${module.vpc.name}-apne2mi"
   vpc_id                  = module.vpc.id
   map_public_ip_on_launch = true
  

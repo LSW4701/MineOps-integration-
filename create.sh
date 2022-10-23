@@ -66,20 +66,19 @@ curl -L https://git.io/get_helm.sh | bash -s -- --version v3.8.2
 ###########################################################################################
 
 
-############################################################################################ CSI Driver
+############################################################################################ CSI Driver설치
 
 # test용
-aws eks create-addon \
-  --cluster-name apne2-mineops \
-  --addon-name aws-ebs-csi-driver \
-  --service-account-role-arn arn:aws:iam::959714228357:role/irsa-apne2-mineops-app-irsa__EKS_test
-
-# mineops용
 # aws eks create-addon \
 #   --cluster-name apne2-mineops \
 #   --addon-name aws-ebs-csi-driver \
-#   --service-account-role-arn arn:aws:iam::087600766519:role/irsa-apne2-mineops-app-irsa__EKS_test
+#   --service-account-role-arn arn:aws:iam::959714228357:role/irsa-apne2-mineops-app-irsa__EKS_test
 
+# mineops용
+aws eks create-addon \
+  --cluster-name apne2-mineops \
+  --addon-name aws-ebs-csi-driver \
+  --service-account-role-arn arn:aws:iam::087600766519:role/irsa-apne2-mineops-app-irsa__EKS_test
 
 
 aws eks update-addon \

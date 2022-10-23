@@ -69,10 +69,11 @@ module "node_group__app" {
 
 
 
-# openvpn_userdata = templatefile("${path.module}/files/userdata.sh", {
-#     vpc_cidr  = local.vpc.cidr_block
-#     public_ip = aws_eip.openvpn.public_ip
-#   })
+# # openvpn_userdata = templatefile("${path.module}/files/userdata.sh", {
+# #     vpc_cidr  = local.vpc.cidr_block
+# #     public_ip = aws_eip.openvpn.public_ip
+# #   })
+
 # }
 
 

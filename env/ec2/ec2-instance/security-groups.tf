@@ -42,8 +42,16 @@ module "sg__openvpn" {
      {
       id          = "openvpn http /all"
       protocol    = "tcp"
-      from_port   = 0
-      to_port     = 80
+      from_port   = 80
+      to_port     = 80   # from_port  0 , to_port 80 으로하면 0-80 으로됨 
+      cidr_blocks = ["0.0.0.0/0"]
+      description = "Allow wen from anywhere."
+    },
+    {
+      id          = "openvpn https /all"
+      protocol    = "tcp"
+      from_port   = 443
+      to_port     = 443   
       cidr_blocks = ["0.0.0.0/0"]
       description = "Allow wen from anywhere."
     },

@@ -11,10 +11,18 @@ locals {
 # Terraform Remote States (External Dependencies)
 ###################################################
 
-data "terraform_remote_state" "network" {
-  backend = "local"
+# data "terraform_remote_state" "network" {
+#   backend = "local"
 
+#   config = {
+#     path = "${path.module}/../../terraform-aws-ubuntu/network/terraform.tfstate"
+#   }
+# }
+data "terraform_remote_state" "network" {
+  backend = "s3"
   config = {
-    path = "${path.module}/../../terraform-aws-ubuntu/network/terraform.tfstate"
+    bucket = var.backend_s3
+    key    = var.vpc_key
+    region = var.region
   }
 }

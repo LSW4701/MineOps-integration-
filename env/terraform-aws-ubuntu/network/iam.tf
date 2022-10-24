@@ -5,12 +5,12 @@ module "iam_for_cw" {
   create_role             = true
   create_instance_profile = false
   role_requires_mfa       = false
-  role_name               = format("%s-flowlog-cw-role", var.name)
+  role_name               = format("%s-flowlog-cw-role-test", var.name)  #
 
   trusted_role_services   = ["vpc-flow-logs.amazonaws.com"]
   custom_role_policy_arns = ["arn:aws:iam::aws:policy/CloudWatchFullAccess"]
 
-  tags = merge(local.tags, { Name = format("%s-flowlog-cw-role-test", var.name) })  #
+  tags = merge(local.tags, { Name = format("%s-flowlog-cw-role", var.name) })  
 }
 
 module "iam_for_s3" {

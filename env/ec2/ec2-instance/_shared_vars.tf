@@ -10,4 +10,3 @@ variable "vpc_key" {
   default = "apne2/network/vpc/terraform.tfstate"
 }
 
-variable "tags" {}

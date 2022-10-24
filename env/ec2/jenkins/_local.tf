@@ -8,11 +8,11 @@ locals {
 
   tags = merge(var.tags, { Owner = var.owner, Environment = var.env })
 
-  vpc_id             = data.terraform_remote_state.vpc.outputs.vpc_id
-  public_subnet_ids  = data.terraform_remote_state.vpc.outputs.public_subnet_ids
-  private_subnet_ids = data.terraform_remote_state.vpc.outputs.private_subnet_ids
-  azs                = data.terraform_remote_state.vpc.outputs.azs
-  default_sg_id      = data.terraform_remote_state.vpc.outputs.default_security_group_id
+  vpc_id             = data.terraform_remote_state.network.outputs.vpc_id
+  public_subnet_ids  = data.terraform_remote_state.network.outputs.public_subnet_ids
+  private_subnet_ids = data.terraform_remote_state.network.outputs.private_subnet_ids
+  azs                = data.terraform_remote_state.network.outputs.azs
+  default_sg_id      = data.terraform_remote_state.network.outputs.default_security_group_id
 
   ami_id        = data.aws_ami.this.id
   ami_owners    = var.ami_owners

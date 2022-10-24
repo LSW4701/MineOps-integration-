@@ -4,7 +4,13 @@ variable "config_file" {
   default     = "./config.yaml"
 }
 
+variable "env" {}
 variable "name" {}
+variable "owner" {}
+variable "region" {}
+variable "vpc_tags" {}
+variable "tags" {}
+
 variable "vpc_flow_retention_days" {}
 variable "vpc_flow_log_format" {
   description = "Private VPC flow log format"

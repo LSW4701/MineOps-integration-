@@ -17,7 +17,7 @@ locals { ##
   # enable_nat_gateway = var.enable_nat_gateway
   # single_nat_gateway = var.single_nat_gateway
 
-  # tags                = merge(var.tags, { Owner = var.owner, Environment = var.env })
+  tags                = merge(var.tags, { Owner = var.owner, Environment = var.env })
   # vpc_tags            = merge(var.vpc_tags, { Name = format("%s-vpc", var.name) })
   # private_subnet_tags = merge(var.private_subnet_tags)
   # public_subnet_tags  = merge(var.public_subnet_tags)

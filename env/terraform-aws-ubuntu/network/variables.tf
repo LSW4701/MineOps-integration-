@@ -4,5 +4,3 @@ variable "config_file" {
   default     = "./config.yaml"
 }
 
-
-vpc_flow_retention_days = 1

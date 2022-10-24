@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket      = "lsw-bkk"
+    bucket      = "lsw-bbk"
     key         = "apne2/ec2/jenkins/terraform.tfstate"
     region      = "ap-northeast-2"
     role_arn    = "arn:aws:iam::959714228357:role/terraformAsume"

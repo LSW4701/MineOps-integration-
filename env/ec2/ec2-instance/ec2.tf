@@ -16,7 +16,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "private" {
   ami           = data.aws_ami.ubuntu.image_id
-  instance_type = "t2.micro"
+  instance_type = "t3.small" #
   subnet_id     = local.subnet_groups["private"].ids[0]
   key_name      = "linux_s" ##
 
@@ -61,7 +61,7 @@ resource "aws_instance" "openvpn" {
   ]
 
   tags = {
-    Name = "${local.vpc.name}-web & openvpn"
+    Name = "${local.vpc.name}-web & openvpn(ubuntu)"
   }
 }
 

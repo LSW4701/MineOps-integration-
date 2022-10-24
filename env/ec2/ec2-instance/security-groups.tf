@@ -39,6 +39,14 @@ module "sg__openvpn" {
       cidr_blocks = ["0.0.0.0/0"]
       description = "Allow OpenVPN from anywhere."
     },
+     {
+      id          = "openvpn http /all"
+      protocol    = "tcp"
+      from_port   = 0
+      to_port     = 80
+      cidr_blocks = ["0.0.0.0/0"]
+      description = "Allow wen from anywhere."
+    },
   ]
   egress_rules = [
     {

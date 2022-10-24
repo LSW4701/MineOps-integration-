@@ -9,6 +9,8 @@ sudo apt-get install -y vim
 sudo apt-get install -y openssh-server
 sudo apt-get install -y git
 sudo apt-get install -y unzip
+sudo apt-get install -y make
+sudo apt-get install -y make-guile 
 
 sudo apt-get install -y \
   apt-transport-https \
@@ -26,9 +28,13 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 usermod -aG docker ubuntu # 도커설치 
 
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+usermod -aG docker ubuntu # 도커설치 
+
+
 # source
-cd /home/ec2-user
+cd /home/ubuntu
 git clone https://github.com/dev-chulbuji/devops_06_03_jenkins.git
-chown -R ec2-user:ec2-user devops_06_03_jenkins
-cd /home/ec2-user/devops_06_03_jenkins/src/jenkins_remote_docker
+chown -R ubuntu:ubuntu devops_06_03_jenkins
+cd /home/ubuntu/devops_06_03_jenkins/src/jenkins_remote_docker
 make run

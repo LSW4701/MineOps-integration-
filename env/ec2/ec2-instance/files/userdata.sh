@@ -9,6 +9,7 @@ sudo apt-get install -y vim
 sudo apt-get install -y openssh-server
 sudo apt-get install -y git
 sudo apt-get install -y unzip
+sudo apt-get install -y docker-compose
 
 sudo apt-get install -y \
   apt-transport-https \

@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "flow_acceptt" { #
+resource "aws_s3_bucket" "flow_accept" { #
   bucket = format("%s-accept-test", local.s3_bucket_name)
   acl    = "private"
   tags = merge(local.tags, { Name = format("%s-accept", local.s3_bucket_name) })

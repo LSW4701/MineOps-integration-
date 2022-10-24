@@ -56,7 +56,7 @@ module "sg__openvpn" {
       description = "Allow wen from anywhere."
     },
     {
-      id          = "web /all"
+      id          = "web9091 /all"
       protocol    = "tcp"
       from_port   = 9091
       to_port     = 9091  
@@ -66,7 +66,7 @@ module "sg__openvpn" {
   ]
   egress_rules = [
     {
-      id          = "all/all"
+      id          = "weball/all"
       description = "Allow to communicate to the Internet."
       protocol    = "-1"
       from_port   = 0
@@ -92,7 +92,7 @@ module "sg__jenkins" {
   ingress_rules = [
   
      {
-      id          = "jen /all"
+      id          = "jen8080 /all"
       protocol    = "tcp"
       from_port   = 8080
       to_port     = 8080   
@@ -100,7 +100,7 @@ module "sg__jenkins" {
       description = "Allow wen from anywhere."
     },
     {
-      id          = "jen /all"
+      id          = "jen8081 /all"
       protocol    = "tcp"
       from_port   = 8081
       to_port     = 8081   
@@ -108,7 +108,7 @@ module "sg__jenkins" {
       description = "Allow wen from anywhere."
     },
     {
-      id          = "web /all"
+      id          = "jen50000 /all"
       protocol    = "tcp"
       from_port   = 50000
       to_port     = 50000 
@@ -116,7 +116,7 @@ module "sg__jenkins" {
       description = "Allow wen from anywhere."
     },
      {
-      id          = "web /all"
+      id          = "jen1044 /all"
       protocol    = "tcp"
       from_port   = 1044
       to_port     = 1044 
@@ -126,7 +126,7 @@ module "sg__jenkins" {
   ]
   egress_rules = [
     {
-      id          = "all/all"
+      id          = "jenall/all"
       description = "Allow to communicate to the Internet."
       protocol    = "-1"
       from_port   = 0
@@ -150,7 +150,7 @@ module "sg__argo" {
   ingress_rules = [
   
      {
-      id          = "argo /all"
+      id          = "argo5556 /all"
       protocol    = "tcp"
       from_port   = 5556
       to_port     = 5558   
@@ -158,7 +158,7 @@ module "sg__argo" {
       description = "Allow wen from anywhere."
     },
     {
-      id          = "argo /all"
+      id          = "argo6379 /all"
       protocol    = "tcp"
       from_port   = 6379
       to_port     = 6379   
@@ -166,7 +166,7 @@ module "sg__argo" {
       description = "Allow wen from anywhere."
     },
     {
-      id          = "argo /all"
+      id          = "argo8080 /all"
       protocol    = "tcp"
       from_port   = 8080
       to_port     = 8085 
@@ -174,7 +174,7 @@ module "sg__argo" {
       description = "Allow wen from anywhere."
     },
      {
-      id          = "argo /all"
+      id          = "argo9121 /all"
       protocol    = "tcp"
       from_port   = 9121
       to_port     = 9121 
@@ -182,7 +182,7 @@ module "sg__argo" {
       description = "Allow wen from anywhere."
     },
        {
-      id          = "argo /all"
+      id          = "argo7000 /all"
       protocol    = "tcp"
       from_port   = 7000
       to_port     = 7000 
@@ -190,7 +190,7 @@ module "sg__argo" {
       description = "Allow wen from anywhere."
     },
         {
-      id          = "argo /all"
+      id          = "argo9001 /all"
       protocol    = "tcp"
       from_port   = 9001
       to_port     = 9001 
@@ -200,7 +200,7 @@ module "sg__argo" {
   ]
   egress_rules = [
     {
-      id          = "all/all"
+      id          = "argoall/all"
       description = "Allow to communicate to the Internet."
       protocol    = "-1"
       from_port   = 0

@@ -1,8 +1,8 @@
 locals { ## 
   # region = var.region
 
-  # name           = var.name
-  # policy_name    = format("%s-policy", var.name)
+  name           = var.name
+  policy_name    = format("%s-policy", var.name)
   s3_bucket_name = format("fc-%s-flow", var.name)
   # azs            = ["${local.region}a", "${local.region}c"]
 

@@ -68,7 +68,7 @@ resource "aws_instance" "openvpn" {
 
 resource "aws_instance" "jenkins" {
   ami           = data.aws_ami.ubuntu.image_id
-  instance_type = "t2.micro"
+  instance_type = "t3.small"
   subnet_id     = local.subnet_groups["public"].ids[0]
   key_name      = "linux_s" ##
 

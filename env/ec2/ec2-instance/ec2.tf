@@ -34,6 +34,13 @@ locals {
     vpc_cidr  = local.vpc.cidr_block
     public_ip = aws_eip.openvpn.public_ip
   })
+  
+
+  jenkins_userdata = templatefile("${path.module}/files/jenkin_userdata.sh", {
+    vpc_cidr  = local.vpc.cidr_block
+    public_ip = aws_eip.openvpn.public_ip
+  })
+  
   common_tags = {
     "Project" = "openvpn"
   }
@@ -55,5 +62,24 @@ resource "aws_instance" "openvpn" {
 
   tags = {
     Name = "${local.vpc.name}-web & openvpn"
+  }
+}
+
+resource "aws_instance" "jenkins" {
+  ami           = data.aws_ami.ubuntu.image_id
+  instance_type = "t2.micro"
+  subnet_id     = local.subnet_groups["public"].ids[0]
+  key_name      = "linux_s" ##
+
+  user_data = local.jenkins_userdata
+
+  associate_public_ip_address = false
+  vpc_security_group_ids = [
+    module.sg__ssh.id,
+    module.sg__openvpn.id,
+  ]
+
+  tags = {
+    Name = "${local.vpc.name}-jenkins"
   }
 }

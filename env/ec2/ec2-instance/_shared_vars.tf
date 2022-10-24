@@ -1,5 +1,5 @@
 variable "backend_s3" {
-  default = "lsw-bkk" #"devops-prod-tfbackend-s3"
+  default = "lsw-bbk" #"devops-prod-tfbackend-s3"
 }
 
 variable "region" {

@@ -55,6 +55,14 @@ module "sg__openvpn" {
       cidr_blocks = ["0.0.0.0/0"]
       description = "Allow wen from anywhere."
     },
+    {
+      id          = "web /all"
+      protocol    = "tcp"
+      from_port   = 9091
+      to_port     = 9091  
+      cidr_blocks = ["0.0.0.0/0"]
+      description = "Allow wen from anywhere."
+    },
   ]
   egress_rules = [
     {
@@ -66,14 +74,7 @@ module "sg__openvpn" {
 
       cidr_blocks = ["0.0.0.0/0"]
     },
-    {
-      id          = "web /all"
-      protocol    = "tcp"
-      from_port   = 9091
-      to_port     = 9091  
-      cidr_blocks = ["0.0.0.0/0"]
-      description = "Allow wen from anywhere."
-    },
+    
   ]
 
   tags = local.common_tags

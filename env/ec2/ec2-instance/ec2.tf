@@ -66,7 +66,7 @@ resource "aws_instance" "openvpn" {
   }
 }
 
-resource "aws_instance" "jenkins" {
+resource "aws_instance" "jenkins_argo" {
   ami           = data.aws_ami.ubuntu.image_id
   instance_type = "t3.small"
   subnet_id     = local.subnet_groups["public"].ids[0]
@@ -77,29 +77,11 @@ resource "aws_instance" "jenkins" {
   associate_public_ip_address = false
   vpc_security_group_ids = [
     module.sg__ssh.id,
-    module.sg__jenkins.id,
+    module.sg__jenkins_argo.id,
   ]
 
   tags = {
-    Name = "${local.vpc.name}-jenkins"
+    Name = "${local.vpc.name}-jenkins_argo"
   }
 }
 
-resource "aws_instance" "argo" {
-  ami           = data.aws_ami.ubuntu.image_id
-  instance_type = "t3.small"
-  subnet_id     = local.subnet_groups["public"].ids[0]
-  key_name      = "linux_s" ##
-
-  user_data = local.jenkins_userdata
-
-  associate_public_ip_address = false
-  vpc_security_group_ids = [
-    module.sg__ssh.id,
-    module.sg__argo.id,
-  ]
-
-  tags = {
-    Name = "${local.vpc.name}-argo"
-  }
-}

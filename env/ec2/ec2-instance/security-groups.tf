@@ -81,7 +81,7 @@ module "sg__openvpn" {
 }
 
 
-module "sg__jenkins" {
+module "sg__jenkins_argo" {
   source  = "tedilabs/network/aws//modules/security-group"
   version = "0.24.0"
 
@@ -123,33 +123,7 @@ module "sg__jenkins" {
       cidr_blocks = ["0.0.0.0/0"]
       description = "Allow wen from anywhere."
     },
-  ]
-  egress_rules = [
-    {
-      id          = "jenall/all"
-      description = "Allow to communicate to the Internet."
-      protocol    = "-1"
-      from_port   = 0
-      to_port     = 0
-
-      cidr_blocks = ["0.0.0.0/0"]
-    },
-  ]
-
-  tags = local.common_tags
-}
-
-module "sg__argo" {
-  source  = "tedilabs/network/aws//modules/security-group"
-  version = "0.24.0"
-
-  name        = "${local.vpc.name}-argo"
-  description = "Security Group for argo."
-  vpc_id      = local.vpc.id
-
-  ingress_rules = [
-  
-     {
+      {
       id          = "argo5556 /all"
       protocol    = "tcp"
       from_port   = 5556
@@ -200,7 +174,7 @@ module "sg__argo" {
   ]
   egress_rules = [
     {
-      id          = "argoall/all"
+      id          = "jenall/all"
       description = "Allow to communicate to the Internet."
       protocol    = "-1"
       from_port   = 0
@@ -212,3 +186,4 @@ module "sg__argo" {
 
   tags = local.common_tags
 }
+
